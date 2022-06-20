@@ -1,0 +1,9 @@
+.task {
+    display: flex;
+    border: 1px solid #FDECCA;
+    /* justify-content: center; */
+    padding: 10px 20px;
+    width: 400px;
+    column-gap: 50px;
+    background-color: white;
+}

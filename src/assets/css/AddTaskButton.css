@@ -1,0 +1,39 @@
+
+
+.addTask {
+    padding: 5px;
+    background-color: #FDECCA;
+}
+
+.addTask:hover {
+    background-color: white;
+}
+
+.light {
+    padding: 10px 30px;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(246, 120, 17);
+    font-size: 14px;
+    border-radius: 1px;
+}
+
+.light:hover {
+    background-color: rgb(215, 97, 12);
+}
+
+.line {
+    border: 1px solid #FDECCA;
+    padding: 10px 30px;
+    cursor: pointer;
+    color: #FDECCA;
+    background-color: white;
+    font-weight: bold;
+}
+
+.line:hover {
+    border: 0;
+    color: white;
+    background-color: #FDECCA;
+}
+
