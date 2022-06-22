@@ -1,6 +1,6 @@
 import React from "react";
-import '../../assets/css/Task.css'
-import { FinishTaskButton, TaskText } from "../";
+import './Task.css'
+import { Button, TaskText } from "../..";
 
 const Task: React.FC<{}> = (props) => {
 
@@ -11,7 +11,7 @@ const Task: React.FC<{}> = (props) => {
     return (
         <div className="task">
             <TaskText text="英語の課題" />
-            <FinishTaskButton text="Finish" class="finishTask" onClick={handleClick} />
+            <Button text="Finish" addTask={ false } onClick={handleClick} />
         </div>
     )
 }

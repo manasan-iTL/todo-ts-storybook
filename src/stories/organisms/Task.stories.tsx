@@ -2,7 +2,7 @@ import React from "react";
 import { action } from '@storybook/addon-actions'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import { Task } from "../../components";
-import * as FinishTask from '../atomics/Buttons/FinishTaskButton.stories'
+import * as Button from '../atomics/Buttons/Button.stories'
 
 export default {
     title: 'Task/Task',
@@ -23,6 +23,6 @@ const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />
 export const task = Template.bind({})
 task.args = {
     finishButton: [
-        {...FinishTask, text: 'Finish', class: 'finishTask' }
+        {...Button, text: 'Finish', addTask: true }
     ]
 }

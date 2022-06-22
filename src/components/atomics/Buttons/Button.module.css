@@ -1,7 +1,7 @@
-
+/* 追加ボタン */
 
 .addTask {
-    padding: 5px;
+    padding: 10px 30px;
     background-color: #FDECCA;
 }
 
@@ -37,3 +37,12 @@
     background-color: #FDECCA;
 }
 
+/* Finishボタン */
+.finishTask {
+    padding: 5px 30px;
+    background-color: #FCFCF1;
+}
+
+.finishTask:hover {
+    background-color: white;
+}

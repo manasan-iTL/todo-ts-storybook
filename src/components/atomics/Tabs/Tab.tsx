@@ -1,15 +1,15 @@
 import React from "react";
-import '../../../assets/css/Tab.css'
+import styles from './Tab.module.css'
 
 type Props = {
     text: string;
-    class: string;
+    open: boolean;
     onClick: () => void
 }
 
 const Tab: React.FC<Props> = (props) => {
     return (
-        <button  className={`${props.class}`} onClick={props.onClick}>
+        <button  className={`${props.open? styles.Tab: styles.notActive}`} onClick={props.onClick}>
             { props.text }
         </button>
     )

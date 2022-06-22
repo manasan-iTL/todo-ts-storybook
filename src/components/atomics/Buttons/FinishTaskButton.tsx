@@ -1,5 +1,5 @@
 import React from "react";
-import '../../../assets/css/FinishTaskButton.css'
+import './FinishTaskButton.css'
 
 type Props = {
     text: string;

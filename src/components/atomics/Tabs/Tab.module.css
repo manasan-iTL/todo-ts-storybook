@@ -6,8 +6,8 @@
 }
 
 .notActive {
-    /* border: 0;
+    border: 0;
     padding: 3px 20px;
-    cursor: pointer; */
+    cursor: pointer;
     background-color: rgb(154, 151, 151);
 }

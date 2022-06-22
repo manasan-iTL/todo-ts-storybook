@@ -1,5 +1,5 @@
 import React from "react";
-import '../../../assets/css/AddTaskButton.css'
+import './AddTaskButton.css'
 
 type AddTaskButtonProps = {
     text: string;
