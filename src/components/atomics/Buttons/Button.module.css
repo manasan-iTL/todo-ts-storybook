@@ -39,10 +39,13 @@
 
 /* Finishボタン */
 .finishTask {
-    padding: 5px 30px;
-    background-color: #FCFCF1;
+    border: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    background-color: #FDECCA;
+    font-weight: bold;
 }
 
 .finishTask:hover {
-    background-color: white;
+    background-color: #FCFCF1;
 }

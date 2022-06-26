@@ -4,7 +4,8 @@ import styles from './Button.module.css'
 type ButtonProps = {
     text: string,
     addTask: boolean,
-    onClick: () => void
+    onClick: () => void,
+    type?: string
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
