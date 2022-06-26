@@ -5,7 +5,7 @@ import { MdOutlineStarBorderPurple500, MdOutlineStarPurple500 } from 'react-icon
 type Props = {
     pinned: boolean,
     size: number,
-    changePinned: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
+    changePinned: () => void
 }
 
 const StarIcon: React.FC<Props> = (props) => {
@@ -18,7 +18,7 @@ const StarIcon: React.FC<Props> = (props) => {
     
     return (
         <IconContext.Provider value={{color: (props.pinned? 'yellow': "gray"), size: props.size + 'rem'}}>
-            <span onClick={(event) => props.changePinned(event) }>
+            <span onClick={() => props.changePinned() }>
                 < MdOutlineStarPurple500 style={{cursor: "pointer"}}/>
             </span>   
         </IconContext.Provider>
