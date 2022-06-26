@@ -1,8 +1,13 @@
 import React from "react";
 import './Task.css'
-import { Button, TaskText } from "../..";
+import { Button, TaskText, StarIcon } from "../..";
 
-const Task: React.FC<{}> = (props) => {
+type Props = {
+    pinned:boolean,
+    changePinned: () => void
+}
+
+const Task: React.FC<Props> = (props) => {
 
     const handleClick = () => {
         console.log("Clicked Finish")
@@ -10,6 +15,7 @@ const Task: React.FC<{}> = (props) => {
 
     return (
         <div className="task">
+            <StarIcon pinned={props.pinned} size={2}  changePinned={props.changePinned}/>
             <TaskText text="英語の課題" />
             <Button text="Finish" addTask={ false } onClick={handleClick} />
         </div>
