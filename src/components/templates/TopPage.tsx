@@ -1,18 +1,30 @@
 import React from "react";
-import { AddTaskButton } from "../";
-import { Header, Main } from "../organisms";
+import { Header, Main } from "../";
+import { InputProps, IconProps,TabProps, item } from '../types/types'
 
-const TopPage: React.FC<{}> = (props) => {
+type Props = InputProps & IconProps & TabProps & {
+    items: item[]
+    onAddTask: (e: React.FormEvent<HTMLFormElement>) => void,
+    onFinishTask: () => void,
+}
 
-    const onClick = () => {
-        console.log("Click")
-    }
+const TopPage: React.FC<Props> = (props) => {
+
 
     return (
-        <div>
-            <Header />
-            <Main />
-            <AddTaskButton text="追加" class="addTask" onClick={onClick}/>
+        <div style={{backgroundColor: "#FCFCF1"}}>
+            <Header text="TODO管理アプリ"/>
+            <Main 
+                items={props.items}
+                value={props.value} 
+                open = {props.open}
+                changeInputValue = {(e) => props.changeInputValue(e)}    
+                onAddTask = {(e) => props.onAddTask(e)} 
+                onFinishTask = {props.onFinishTask}
+                changeTab = {props.changeTab}
+                changePinned = {(e) => props.changePinned(e)}/>
+                
+
         </div>
     )
 }
