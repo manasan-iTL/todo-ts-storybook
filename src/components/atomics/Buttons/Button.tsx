@@ -1,16 +1,17 @@
 import React from "react";
-import styles from './Button.module.css'
+import styled from './Button.module.css'
+import { ButtonProps } from '../../types/types'
 
-type ButtonProps = {
-    text: string,
-    addTask: boolean,
-    onClick: () => void,
-    type?: string
-}
+// type Props = {
+//     text: string,
+//     addTask: boolean,
+//     onClick: () => void,
+//     type?: string
+// }
 
 const Button: React.FC<ButtonProps> = (props) => {
     return (
-        <button onClick={props.onClick} className={props.addTask? styles.line: styles.finishTask}>
+        <button onClick={props.onClick} className={props.addTask? styled.line: styled.finishTask}>
             { props.text }
         </button>
     )

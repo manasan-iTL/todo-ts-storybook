@@ -6,6 +6,7 @@
 }
 
 .addTask:hover {
+    padding: 10px 30px;
     background-color: white;
 }
 
