@@ -1,12 +1,11 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
+import { TextProps } from "../../types/types";
+// type Props = {
+//     text: string;
+//     class?: string;
+// }
 
-type Props = {
-    text: string;
-    class?: string;
-}
-
-const TaskText: React.FC<Props> = (props) => {
+const TaskText: React.FC<TextProps> = (props) => {
     return (
         <p className={`${props.class}`} >{props.text}</p>
     )

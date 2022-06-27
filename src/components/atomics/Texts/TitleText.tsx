@@ -1,8 +1,12 @@
 import React from "react";
+import { TextProps } from "../../types/types";
+// type Props = {
+//     text: string,
+// }
 
-const TitleText: React.FC<{}> = (props) => {
+const TitleText: React.FC<TextProps> = (props) => {
     return (
-        <h1>Todo管理アプリ</h1>
+        <h1> {props.text} </h1>
     )
 }
 
