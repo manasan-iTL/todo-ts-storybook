@@ -1,24 +1,18 @@
-import React, { useState } from "react";
 import { IconContext } from "react-icons";
-import { MdOutlineStarBorderPurple500, MdOutlineStarPurple500 } from 'react-icons/md'
+import { MdOutlineStarPurple500 } from 'react-icons/md'
+import {IconProps} from '../../types/types'
 
-type Props = {
-    pinned: boolean,
-    size: number,
-    changePinned: () => void
-}
+// type Props = {
+//     pinned: boolean,
+//     size?: number,
+//     changePinned: () => void
+// }
 
-const StarIcon: React.FC<Props> = (props) => {
-
-    // const [pinned, setPinned] = useState<boolean>(false)
-
-    // const handleChangePinned = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    //     setPinned(true)
-    // }
+const StarIcon: React.FC<IconProps> = (props) => {
     
     return (
         <IconContext.Provider value={{color: (props.pinned? 'yellow': "gray"), size: props.size + 'rem'}}>
-            <span onClick={() => props.changePinned() }>
+            <span id={props.id} onClick={(e) => props.changePinned(e) }>
                 < MdOutlineStarPurple500 style={{cursor: "pointer"}}/>
             </span>   
         </IconContext.Provider>
