@@ -1,17 +1,18 @@
 import React from "react";
 import Tab from "../../atomics/Tabs/Tab";
 import styled from './TabGroup.module.css'
+import { TabProps } from "../../types/types";
 
-type Props = {
-    open: boolean,
-    onClick: () => void
-}
+// type Props = {
+//     open: boolean,
+//     changeTab: () => void
+// }
 
-const TabGroup: React.FC<Props> = (props) => {
+const TabGroup: React.FC<TabProps> = (props) => {
     return (
         <div className={styled.tabGroup}>
-            <Tab text="完了" open={true} onClick = {props.onClick}/>
-            <Tab text="未完了" open={false} onClick = {props.onClick}/>
+            <Tab text="進行中" open={props.open} changeTab = {props.changeTab}/>
+            <Tab text="完了" open={!(props.open)} changeTab = {props.changeTab}/>
         </div>
     )
 }
