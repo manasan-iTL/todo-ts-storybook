@@ -1,21 +1,34 @@
 import React from "react";
 import Task from "../Task/Task";
 import styled from './TaskList.module.css'
+import {IconProps, item} from '../../types/types'
 
-type Props = {
-    changePinned: () => void
+type Props = IconProps & {
+    open: boolean,
+    onFinishTask: () => void
+    items: item[]
 }
 
 const TaskList: React.FC<Props> = (props) => {
 
-    // const orderTaskList = (items: [])
-
+    // タブが進行中か完了かによってタスクをソートする
+    const sortTaskList = props.items.filter((item) => props.open === item.finish)
+    // pinned（ピンがつけられているか）によって順番を変える
+    const piinedTasks = sortTaskList.filter((order) => order.pinned)
+    const unPinnedTasks = sortTaskList.filter((order) => !(order.pinned))
+    const result = [...piinedTasks, ...unPinnedTasks]
     return (
         <div className={styled.taskList}>
-            <Task pinned={true} changePinned={() => props.changePinned()} />
-            <Task pinned={false} changePinned={() => props.changePinned()} />
-            <Task pinned={true} changePinned={() => props.changePinned()} />
-            <Task pinned={false} changePinned={() => props.changePinned()} />
+            {
+                result.map(item => 
+                          <Task id={item.id} 
+                                key={item.id}  
+                                taskText={item.task} 
+                                pinned={item.pinned} 
+                                changePinned={(e) => props.changePinned(e)} 
+                                onFinishTask = {props.onFinishTask} /> )
+            }
+
         </div>
     )
 }
