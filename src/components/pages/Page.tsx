@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {TopPage} from "../"
-import { Pinned } from "../../stories/atomics/Icon/StarIcon.stories";
 import { PageProps, item } from "../types/types";
 
 const url = "https://wjn8pv712f.execute-api.ap-northeast-1.amazonaws.com/dev/tasks"
