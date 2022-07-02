@@ -1,8 +1,9 @@
 import React from "react";
 import { action } from '@storybook/addon-actions'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
-import { Task } from "../../components";
-import * as Button from '../atomics/Buttons/Button.stories'
+import { Task, Button } from "../../components";
+import { addtaskbutton } from "../atomics/Buttons/Button.stories";
+import { text } from "stream/consumers";
 
 export default {
     title: 'Task/Task',
@@ -18,11 +19,10 @@ export default {
       },
 } as ComponentMeta<typeof Task>
 
-const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />
+// const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />
 
-export const task = Template.bind({})
-task.args = {
-    finishButton: [
-        {...Button, text: 'Finish', addTask: true }
-    ]
-}
+// export const task: ComponentStory<typeof Task> = (args) => {
+//   <Task {...args}>
+//     {/* <addtaskbutton {...args} /> */}
+//   </Task>
+// }

@@ -14,12 +14,12 @@ export const ActiveTab = Template.bind({})
 ActiveTab.args = {
     text: '完了',
     open: true,
-    onClick: action("Clicked")
+    // onClick: action("Clicked")
 }
 
 export const DisActiveTab = Template.bind({})
 DisActiveTab.args = {
     text: '未完了',
     open: false,
-    onClick: action("Clicked")
+    // onClick: action("Clicked")
 }
