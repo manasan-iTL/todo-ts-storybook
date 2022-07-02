@@ -5,7 +5,7 @@ import { InputProps, IconProps,TabProps, item } from '../types/types'
 type Props = InputProps & IconProps & TabProps & {
     items: item[]
     onAddTask: (e: React.FormEvent<HTMLFormElement>) => void,
-    onFinishTask: () => void,
+    onFinishTask: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
 }
 
 const TopPage: React.FC<Props> = (props) => {
@@ -20,7 +20,7 @@ const TopPage: React.FC<Props> = (props) => {
                 open = {props.open}
                 changeInputValue = {(e) => props.changeInputValue(e)}    
                 onAddTask = {(e) => props.onAddTask(e)} 
-                onFinishTask = {props.onFinishTask}
+                onFinishTask = {(e) => props.onFinishTask(e)}
                 changeTab = {props.changeTab}
                 changePinned = {(e) => props.changePinned(e)}/>
                 

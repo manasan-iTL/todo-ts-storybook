@@ -5,14 +5,14 @@ import { InputProps, IconProps, TabProps, item } from '../../types/types'
 type Props = InputProps & IconProps & TabProps & {
     items: item[]
     onAddTask: (e: React.FormEvent<HTMLFormElement>) => void,
-    onFinishTask: () => void
+    onFinishTask: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const Main: React.FC<Props> = (props) => {
     return (
         <main className={styled.main}>
             <InputGroup onAddTask={(e) => props.onAddTask(e)} value={props.value} changeInputValue={(e) => props.changeInputValue(e)}/>
-            <ChangeTaskGroup open={props.open} items={props.items} onFinishTask={props.onFinishTask} changeTab={props.changeTab} changePinned={(e) => props.changePinned(e)}/>
+            <ChangeTaskGroup open={props.open} items={props.items} onFinishTask={(e)=> props.onFinishTask(e)} changeTab={props.changeTab} changePinned={(e) => props.changePinned(e)}/>
         </main>
     )
 }

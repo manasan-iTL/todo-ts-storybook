@@ -11,7 +11,7 @@ import { ButtonProps } from '../../types/types'
 
 const Button: React.FC<ButtonProps> = (props) => {
     return (
-        <button onClick={props.onClick} className={props.addTask? styled.line: styled.finishTask}>
+        <button id={props.id} onClick={props.onClick} className={props.addTask? styled.line: styled.finishTask}>
             { props.text }
         </button>
     )

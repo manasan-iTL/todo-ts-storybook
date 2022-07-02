@@ -26,8 +26,8 @@ const Page: React.FC<PageProps> = (props) => {
     // }, [open])
 
     const changePinned = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        const newObj = items.filter(item => item.id === e.currentTarget.id)[0]
-        const oldArray = items.filter(item => item.id !== e.currentTarget.id)
+        const newObj = items.filter(item => item.id === e.currentTarget.id.slice(-1))[0]
+        const oldArray = items.filter(item => item.id !== e.currentTarget.id.slice(-1))
         newObj.pinned = !(newObj.pinned)
         const orderArray = [...oldArray, newObj].sort((first, second) => {
             if(first.id > second.id) {return 1}
@@ -50,6 +50,15 @@ const Page: React.FC<PageProps> = (props) => {
         setValue("")
     }
 
+    const onFinishTask = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        console.log(e.currentTarget.id)
+        const newObj = items.filter(item => item.id === e.currentTarget.id.slice(-1))[0]
+        const oldArray = items.filter(item => item.id !== e.currentTarget.id.slice(-1))
+        newObj.finish = !(newObj.finish)
+        const orderArray = [...oldArray, newObj]
+        setItems(orderArray)
+    }
+
     return (
         <TopPage 
             items={items}
@@ -59,7 +68,7 @@ const Page: React.FC<PageProps> = (props) => {
             changePinned = {(e) => changePinned(e)}
             changeTab={changeTab}
             onAddTask = {(e) => onAddTask(e)}
-            onFinishTask = {props.onFinishTask}/>
+            onFinishTask = {(e) => onFinishTask(e)}/>
     )
 }
 

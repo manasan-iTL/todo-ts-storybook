@@ -13,16 +13,13 @@ const items: item[] = [
   {id: "6", task: "掃除", finish: true, pinned: true },
 ]
 
-const onClick = () => {
-  console.log("Clicked")
-}
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Page items={items} onFinishTask = {() => onClick()}/>
+    <Page items={items} />
   </React.StrictMode>
 );
 

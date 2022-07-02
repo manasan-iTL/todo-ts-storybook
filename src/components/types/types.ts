@@ -2,8 +2,9 @@ import React from "react"
 
 export type ButtonProps = {
     text?: string,
+    id?: string,
     addTask?: boolean,
-    onClick?: () => void,
+    onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
     type?: string
 }
 
@@ -33,7 +34,6 @@ export type TextProps = {
 export type PageProps =  {
     items: item[]
     addTaskApi?: () => void,
-    onFinishTask: () => void,
     finishTaskApi?: () => void
 }
 
