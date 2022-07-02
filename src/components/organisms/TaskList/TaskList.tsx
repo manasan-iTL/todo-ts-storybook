@@ -24,6 +24,7 @@ const TaskList: React.FC<Props> = (props) => {
                           <Task id={item.id} 
                                 key={item.id}  
                                 taskText={item.task} 
+                                buttonText = {props.open? "取り消す": "終了" }
                                 pinned={item.pinned} 
                                 changePinned={(e) => props.changePinned(e)} 
                                 onFinishTask = {(e) => props.onFinishTask(e)} /> )

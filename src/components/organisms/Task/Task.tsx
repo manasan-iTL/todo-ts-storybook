@@ -6,6 +6,7 @@ import {IconProps} from '../../types/types'
 type Props = IconProps & {
     onFinishTask: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
     taskText: string,
+    buttonText: string
 }
 
 const Task: React.FC<Props> = (props) => {
@@ -14,7 +15,7 @@ const Task: React.FC<Props> = (props) => {
         <div className="task">
             <StarIcon id = {`icon${props.id}`} pinned={props.pinned} size={2}  changePinned={(e)=> props.changePinned(e)}/>
             <TaskText text={props.taskText} />
-            <Button id={`finishButton${props.id}`} text="Finish" addTask={ false } onClick={(e) => props.onFinishTask(e)} />
+            <Button id={`finishButton${props.id}`} text={props.buttonText} addTask={ false } onClick={(e) => props.onFinishTask(e)} />
         </div>
     )
 }

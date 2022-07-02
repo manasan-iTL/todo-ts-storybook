@@ -32,7 +32,6 @@ export type TextProps = {
 }
 
 export type PageProps =  {
-    items: item[]
     addTaskApi?: () => void,
     finishTaskApi?: () => void
 }
