@@ -99,12 +99,19 @@ const Page: React.FC = () => {
             pinned: false
         }
 
-        // API通信
-        sendTask(newTask)
+        // バリデーションチェック
+        if (newTask.task === "" || newTask.task.trim() === "") {
+            alert("文字を入力してください")
+            setValue("")
+        } else {
+             // API通信
+            sendTask(newTask)
 
-        // ステートの更新
-        setItems([...items, newTask])
-        setValue("")
+            // ステートの更新
+            setItems([...items, newTask])
+            setValue("")
+        }
+
     }
 
 
