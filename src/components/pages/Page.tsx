@@ -25,7 +25,6 @@ const Page: React.FC = () => {
             key: taskKey,
             value: taskValue
         })
-        console.log(response)
         return response
     }
 
