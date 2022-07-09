@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 import { Page } from './components';
 import './index.css'
 
@@ -9,7 +11,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Page />
+    <Provider store={store}>
+      <Page />
+    </Provider>
   </React.StrictMode>
 );
 
