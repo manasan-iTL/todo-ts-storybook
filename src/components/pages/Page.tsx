@@ -4,7 +4,7 @@ import { TopPage } from "../"
 import { item } from "../types/types";
 
 /* 外部APIのURL   */
-const url = "https://wjn8pv712f.execute-api.ap-northeast-1.amazonaws.com/dev/tasks"
+const url = "apiのurl"
 
 const Page: React.FC = () => {
 
