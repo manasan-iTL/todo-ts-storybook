@@ -7,11 +7,12 @@ import { AppDispatch } from "../../../redux/store";
 
 const InputGroup: React.FC = () => {
 
+    // 上位コンポーネントで管理していたステートを移植　入力値の管理及び更新関数
     const [value, setValue] = useState<string>("")
     const changeInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
-
+    // タスクを追加する処理
     const dispatch: AppDispatch = useDispatch()
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()

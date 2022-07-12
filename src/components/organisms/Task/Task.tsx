@@ -14,9 +14,11 @@ type Props = IconProps & {
 
 const Task: React.FC<Props> = (props) => {
 
+    // Todosを取得する
     const dispatch: AppDispatch = useDispatch()
     const todos = useSelector((state: RootState) => state.todo.todos)
 
+    // 終了したタスクの処理
     const handleClick = () => {
         const isFinish = todos.map((todo) => todo.id === props.id)
         return dispatch(modifyTodo({todoId: props.id, keyValue: "finish", taskValue:!isFinish }))

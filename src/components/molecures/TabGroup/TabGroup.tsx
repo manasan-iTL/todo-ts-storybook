@@ -6,6 +6,8 @@ import { RootState } from "../../../redux/store";
 
 
 const TabGroup: React.FC = () => {
+    
+    // 開閉状態の取得
     const open = useSelector((state: RootState) => state.filter.open)
     return (
         <div className={styled.tabGroup}>
