@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputTask, Button } from '../../'
 import styled from './InputGroup.module.css'
-import {InputProps} from '../../types/types'
+import { useDispatch } from "react-redux";
+import { sendTodo } from "../../../redux/slices/todos/todoSlice";
+import { AppDispatch } from "../../../redux/store";
 
-type Props = InputProps & {
-    onAddTask: (e: React.FormEvent<HTMLFormElement>) => void,
-}
+const InputGroup: React.FC = () => {
 
-const InputGroup: React.FC<Props> = (props) => {
+    const [value, setValue] = useState<string>("")
+    const changeInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value)
+    }
 
+    const dispatch: AppDispatch = useDispatch()
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (value === "" || value.trim() === "") {
+            alert("文字を入力してください")
+            setValue("")
+        } else {
+            dispatch(sendTodo(value))
+            setValue("")
+        }
+    }
 
     return (
-        <form action="" className={styled.form} onSubmit={(e) => props.onAddTask(e)}>
+        <form action="" className={styled.form} onSubmit={(e) => handleSubmit(e)}>
             <dl className={styled.inputGroup}>
                 <dt className={styled.formItem}>
-                    <InputTask value={props.value} changeInputValue={(e) => props.changeInputValue(e)}/>
+                    <InputTask value={value} changeInputValue={(e) => changeInputValue(e)}/>
                 </dt>
                 <dd className={styled.formItem}>
                     <Button text="追加" addTask={true} type="submit"/>

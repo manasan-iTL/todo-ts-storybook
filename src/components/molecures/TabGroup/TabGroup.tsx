@@ -1,18 +1,16 @@
 import React from "react";
 import Tab from "../../atomics/Tabs/Tab";
 import styled from './TabGroup.module.css'
-import { TabProps } from "../../types/types";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
-// type Props = {
-//     open: boolean,
-//     changeTab: () => void
-// }
 
-const TabGroup: React.FC<TabProps> = (props) => {
+const TabGroup: React.FC = () => {
+    const open = useSelector((state: RootState) => state.filter.open)
     return (
         <div className={styled.tabGroup}>
-            <Tab text="進行中" open={props.open} changeTab = {props.changeTab}/>
-            <Tab text="完了" open={!(props.open)} changeTab = {props.changeTab}/>
+            <Tab text="進行中" open={open}/>
+            <Tab text="完了" open={!open}/>
         </div>
     )
 }
