@@ -15,15 +15,13 @@ export type InputProps = {
 
 export type TabProps = {
     text?: string;
-    open: boolean;
-    changeTab: () => void
+    open: boolean
 }
 
 export type IconProps = {
-    id?: string,
-    pinned?: boolean,
+    id: string,
+    pinned: boolean,
     size?: number,
-    changePinned: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
 }
 
 export type TextProps = {
