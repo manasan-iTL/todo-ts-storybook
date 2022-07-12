@@ -1,25 +1,35 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Task from "../Task/Task";
 import styled from './TaskList.module.css'
-import {IconProps, item} from '../../types/types'
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { FilterTodosByTab } from "../../../redux/selector";
+import { fetchAllTodos } from "../../../redux/slices/todos/todoSlice";
 
-type Props = IconProps & {
-    open: boolean,
-    onFinishTask: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-    items: item[]
-}
+const TaskList: React.FC = () => {
 
-const TaskList: React.FC<Props> = (props) => {
+    const dispatch: AppDispatch = useDispatch()
+    const open = useSelector((state: RootState) => state.filter)
+    const todos = useSelector((state: RootState) => state.todo.todos)
+    const result = FilterTodosByTab(todos, open)
 
-    // タブが進行中か完了かによってタスクをソートする
-    const sortTaskList = props.items.filter((item) => props.open === item.finish)
+    useEffect(() => {
+        dispatch(fetchAllTodos())
+    }, [dispatch])
 
-    // pinned（ピンがつけられているか）によって順番を変える
-    const piinedTasks = sortTaskList.filter((order) => order.pinned)
-    const unPinnedTasks = sortTaskList.filter((order) => !(order.pinned))
+    console.log(result)
+    // useEffect(() => {
+    //     FilterTodosByTab(todos,open)
+    // }, [open])
+    // // タブが進行中か完了かによってタスクをソートする
+    // const sortTaskList = props.items.filter((item) => props.open === item.finish)
 
-    // ピン付けされたタスク→そうでないタスクの順で更新を行い、ピン付けされたタスクが上位に表示できるようにする
-    const result = [...piinedTasks, ...unPinnedTasks]
+    // // pinned（ピンがつけられているか）によって順番を変える
+    // const piinedTasks = sortTaskList.filter((order) => order.pinned)
+    // const unPinnedTasks = sortTaskList.filter((order) => !(order.pinned))
+
+    // // ピン付けされたタスク→そうでないタスクの順で更新を行い、ピン付けされたタスクが上位に表示できるようにする
+    // const result = [...piinedTasks, ...unPinnedTasks]
     return (
         <div className={styled.taskList}>
             {
@@ -27,10 +37,8 @@ const TaskList: React.FC<Props> = (props) => {
                           <Task id={item.id} 
                                 key={item.id}  
                                 taskText={item.task} 
-                                buttonText = {props.open? "取り消す": "終了" }
-                                pinned={item.pinned} 
-                                changePinned={(e) => props.changePinned(e)} 
-                                onFinishTask = {(e) => props.onFinishTask(e)} /> )
+                                buttonText = {open? "終了": "取り消す" }
+                                pinned={item.pinned} /> )
             }
 
         </div>
