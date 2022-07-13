@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FilterContext } from "../../../Provider/filterProvider";
 import Tab from "../../atomics/Tabs/Tab";
 import styled from './TabGroup.module.css'
-import { TabProps } from "../../types/types";
 
-// type Props = {
-//     open: boolean,
-//     changeTab: () => void
-// }
-
-const TabGroup: React.FC<TabProps> = (props) => {
+const TabGroup: React.FC = () => {
+    const {filterState} = useContext(FilterContext)
+    console.log(filterState)
     return (
         <div className={styled.tabGroup}>
-            <Tab text="進行中" open={props.open} changeTab = {props.changeTab}/>
-            <Tab text="完了" open={!(props.open)} changeTab = {props.changeTab}/>
+            <Tab text="進行中" open={filterState.open} />
+            <Tab text="完了" open={!(filterState.open)} />
         </div>
     )
 }
