@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Page } from './components';
 import './index.css'
+import TodoProvider from './Provider/todoProvider';
+import FilterProvider from './Provider/filterProvider';
 
 
 const root = ReactDOM.createRoot(
@@ -9,7 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Page />
+    <TodoProvider>
+      <FilterProvider>
+        <Page />
+      </FilterProvider>
+    </TodoProvider>
   </React.StrictMode>
 );
 
