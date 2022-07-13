@@ -13,11 +13,11 @@ export const Default = Template.bind({})
 Default.args = {
     pinned: true,
     size: 2,
-    changePinned: action("Trueになる")
+    // changePinned: action("Trueになる")
 }
 
 export const Pinned = Template.bind({})
 Pinned.args = {
     pinned: false,
-    changePinned: action("Falseになる")
+    // changePinned: action("Falseになる")
 }
